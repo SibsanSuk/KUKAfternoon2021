@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
+    //ใช้งาน AI ผ่าน NavMeshAgent ของ Unity
     NavMeshAgent agent;
+    // เป้าหมายที่ AI จะเดินผ่าน NavMesh ไปจนถึง
     public GameObject target;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class AIController : MonoBehaviour
     {
         if (target != null)
         {
+            // !!! Warning !!! การ SetDestination ใน Update ไม่ควรทำเพราะใช้ CPU มาก
             agent.SetDestination(target.transform.position);
         }
         
